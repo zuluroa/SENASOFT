@@ -11,17 +11,16 @@
 </head>
 
 <body class="is-preload">
-      <script type="text/javascript">
-                    function ConfirmDelete(){
-                        var respuesta = confirm("Estas Seguro de Eliminar la Pedido?");
-                        if(respuesta==true){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-
-                    </script>
+    <script type="text/javascript">
+        function ConfirmDelete() {
+            var respuesta = confirm("Estas Seguro de Eliminar la Pedido?");
+            if (respuesta == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -38,12 +37,12 @@
                 <!-- Content -->
                 <?php
                 include("../../conexion.php");
-                $RSPed = mysqli_query($conexion, "SELECT * FROM pedido ORDER BY PEDid DESC");
-                $NumPed = mysqli_num_rows($RSPed);
+                $RSHis = mysqli_query($conexion, "SELECT * FROM historial ORDER BY id DESC");
+                $NumHis = mysqli_num_rows($RSHis);
                 ?>
                 <div class="container">
                     <div class="btn-group">
-                        <h1>Gestionar Pedidos</h1>
+                        <h1>Gestionar Historial</h1>
                         <div>
                             <a href="add.php" class="button big">Agregar</a></p>
                         </div>
@@ -58,31 +57,25 @@
                                     <h3>Eliminar</h3>
                                 </td>
                                 <td align="center">
-                                    <h3>Actualizar </h3>
+                                    <h3>Proveedor</h3>
                                 </td>
                                 <td align="center">
-                                    <h3>Proveedor</h3>
+                                    <h3>Paciente</h3>
                                 </td>
                                 <td align="center">
                                     <h3>Fecha</h3>
                                 </td>
-                                <td align="center">
-                                    <h3>N&uacute;mero</h3>
-                                </td>
-                                <td align="center">
-                                    <h3>PDF</h3>
-                                </td>
                             </tr>
                         </thead>
                         <?php
-                        if ($NumPed != 0) {
-                            while ($vPed = mysqli_fetch_row($RSPed)) {
-                                $RSPro = mysqli_query($conexion, "SELECT * FROM proveedor WHERE PROVid = '" . $vPed[1] . "'");
-                                $NumPro = mysqli_num_rows($RSPro);
-                                if ($NumPro != 0) {
-                                    $vPro = mysqli_fetch_row($RSPro);
+                        if ($NumHis != 0) {
+                            while ($vHis = mysqli_fetch_row($RSHis)) {
+                                $RSPac = mysqli_query($conexion, "SELECT * FROM paciente WHERE id = '" . $vHis[1] . "'");
+                                $NumPac = mysqli_num_rows($RSPac);
+                                if ($NumPac != 0) {
+                                    $vPac = mysqli_fetch_row($RSPac);
                                 }
-                               
+
                         ?>
                                 <tbody>
                                     <tr>
@@ -92,36 +85,15 @@
                                             </a>
                                         </td>
                                         <td align="center">
-                                            <a href="delete.php?PEDid=<?php echo $vPed[0] ?>" class="button big"  onclick=" return ConfirmDelete()">
+                                            <a href="delete.php?PEDid=<?php echo $vPed[0] ?>" class="button big" onclick=" return ConfirmDelete()">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </td>
                                         <td align="center">
-                                            <a href="edit.php?PEDid=<?php echo $vPed[0] ?>" class="button big">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                            <div align="center"><?php echo $vPac[2] . " - " . $vPac[3] ?></div>
                                         </td>
                                         <td align="center">
-                                            <div align="center"><?php echo $vPro[1] ?></div>
-                                        </td>
-                                        <td align="center">
-                                            <div align="center"><?php echo $vPed[2] ?></div>
-                                        </td>
-                                        <td align="center">
-                                            <div align="center"><?php echo $vPed[3] ?></div>
-                                        </td>
-                                        <td align="center">
-                                        <?php
-                                         if($vPed[4]==null){
-                                            echo "NO HAY PDF";
-                                        }else{
-                                            ?>
-                                            <a href="archivo.php?PEDid=<?php echo $vPed[0]; ?>" class="button big">
-                                                <i class="fas fa-file-pdf"></i>
-                                            </a>
-                                            <?php
-                                        }
-                                            ?>
+                                            <div align="center"><?php echo $vHis[3] ?></div>
                                         </td>
                                     </tr>
                                 </tbody>

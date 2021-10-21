@@ -3,7 +3,7 @@
 
         <!-- Search -->
         <section id="search" class="alt">
-            <h3>Bienvenido, <?php echo $_SESSION['NombreADMIN']; ?></h3>
+            <h3>Bienvenido, <?php // echo $_SESSION['NombreADMIN']; ?></h3>
         </section>
 
         <!-- Menu -->
@@ -14,10 +14,14 @@
             <table width="100%">
                 <tr>
                     <ul>
-              
+                    <li class="nav-item">
+                            <a class="nav-link" href="../pac/index.php">
+                                PACIENTE
+                            </a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../ped/index.php">
-                                pedido
+                            <a class="nav-link" href="../his/index.php">
+                                HISTORIAL
                             </a>
                         </li>
              

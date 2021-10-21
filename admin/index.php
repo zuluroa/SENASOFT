@@ -94,7 +94,7 @@ if ($varsesion == null || $varsesion = '') {
 
                 <!-- Search -->
                 <section id="search" class="alt">
-                    <h3>Bienvenido, <?php echo $_SESSION['NombreADMIN']; ?></h3>
+                    <!-- Search <h3>Bienvenido, <?php //echo $_SESSION['NombreADMIN']; ?></h3>-->
                 </section>
 
                 <!-- Menu -->
@@ -106,10 +106,15 @@ if ($varsesion == null || $varsesion = '') {
                         <tr>
                         <ul>            
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/ped/index.php">
-                                    pedido
+                                <a class="nav-link" href="../admin/pac/index.php">
+                                    PACIENTE
                                 </a>
-                            </li>                    
+                            </li>    
+                            <li class="nav-item">
+                                <a class="nav-link" href="../admin/his/index.php">
+                                    HISTORIAL
+                                </a>
+                            </li>                  
                             <li class="nav-item">
                                 <a class="nav-link" href="../cerrar_session.php">
                                     Cerrar
