@@ -104,47 +104,12 @@ if ($varsesion == null || $varsesion = '') {
                     </header>
                     <table width="100%" align="center">
                         <tr>
-                        <ul>
-                            <li>
-                                <a href="../admin/usu/index.php">
-                                    Usuario
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/ent/index.php">
-                                    Entidad
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/cli/index.php">
-                                    Cliente
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../admin/prov/index.php">
-                                    proveedor
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../admin/emp/index.php">
-                                    empaque
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../admin/pro/index.php">
-                                    producto
-                                </a>
-                            </li>
+                        <ul>            
                             <li class="nav-item">
                                 <a class="nav-link" href="../admin/ped/index.php">
                                     pedido
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../admin/ven/index.php">
-                                    Ventas
-                                </a>
-                            </li>
+                            </li>                    
                             <li class="nav-item">
                                 <a class="nav-link" href="../cerrar_session.php">
                                     Cerrar
