@@ -1,0 +1,13 @@
+.paginador ul{
+    align-items: center;
+    padding: 15px;
+    list-style: none;
+    background-color: #FFFFFF;
+    margin-top: 15px;
+    padding-right: 15px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
