@@ -1008,10 +1008,16 @@ header.major > :last-child {
 
 header.main > :last-child {
   margin: 0 0 1em 0; }
-
-/* Form */
+ 
 form {
-  margin: 0 0 2em 0; }
+  position: absolute;
+  border-right: 50%;
+  margin-right: 70%;
+   } 
+.pdf{
+  margin-left: 55%;
+  margin-top: 5%;
+}   
 
 label {
   color: #3d4449;

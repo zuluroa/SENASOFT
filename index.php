@@ -9,7 +9,7 @@
     <link rel="icon" href="img/icono.png">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
-    <title>VITALPLUS</title>
+    <title>SENASOFT</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 <!-- CAJA 1 -->
                 <div class="caja1">
                     <div class="checked-flex">
-                        <p>VITALPLUS</p>
+                        <p>SENASOFT</p>
                     </div>
                     <div class="caja1-titulo">
                         <h1>Sistema de Inventarios</h1>

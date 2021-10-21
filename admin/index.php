@@ -12,7 +12,7 @@ if ($varsesion == null || $varsesion = '') {
 ?>
 
 <head>
-    <title>VITALPLUS</title>
+    <title>SENASOFT</title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="img/icono.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -30,14 +30,14 @@ if ($varsesion == null || $varsesion = '') {
 
                 <!-- Header -->
                 <header id="header">
-                    <a href="../admin/index.php" class="logo"><strong>VITALPLUS</strong> Sistema de Inventarios</a>
+                    <a href="../admin/index.php" class="logo"><strong>SENASOFT</strong> Sistema de Inventarios</a>
                 </header>
 
                 <!-- Banner -->
                 <section id="banner">
                     <div class="content">
                         <header>
-                            <h1>VITALPLUS<br />
+                            <h1>SENASOFT<br />
                             </h1>
                             <p>Sistema de Inventarios</p>
                         </header>

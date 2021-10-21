@@ -103,9 +103,11 @@
                                     }
                                     ?>
                                 </table>
-                            </div>
-                        
+                            </div>                      
                         </form>
+                        <div class="pdf">
+                        <img src="img/LogoGrande.png" style="width:400px; height:400px;" />
+                        </div>
                     </div>
                 <?php
                 }

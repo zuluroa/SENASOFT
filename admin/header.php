@@ -10,5 +10,5 @@ die();
 }*/
 ?>
 <header id="header">
-    <a href="../index.php" class="logo"><strong>VITALPLUS</strong> 	Sistema de Inventarios</a>
+    <a href="../index.php" class="logo"><strong>SENASOFT</strong> 	Sistema de Inventarios</a>
 </header>

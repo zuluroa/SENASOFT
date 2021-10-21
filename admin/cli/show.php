@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>KAWAL</title>
+        <title>SENASOFT</title>
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="../img/icono.png">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
