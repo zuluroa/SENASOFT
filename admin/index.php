@@ -2,12 +2,13 @@
 
 <html>
 <?php
+/*
 session_start();
 $varsesion = $_SESSION['NombreADMIN'];
 if ($varsesion == null || $varsesion = '') {
     echo 'No ha Iniciado Sesion';
     die();
-}
+}*/
 ?>
 
 <head>
