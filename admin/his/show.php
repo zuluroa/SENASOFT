@@ -61,11 +61,13 @@
                     }
                 ?>
                     <div class="container">
-                        <form class="ap" method="POST" enctype="multipart/form-data">
-                            <h1>Mostrar Historial</h1>
+                    <h1>Mostrar Historial</h1>
+                        <form id="formdividido" method="POST" enctype="multipart/form-data">
+                           
                             <input type="hidden" value="<?php echo $id; ?>" name="PEDid">
+                            <h3>Fecha de la historia clinica</h3>
+
                             <div class="form-group">
-                                <h3>Fecha de la historia clinica</h3>
                                 <input name="fecha " type="date" id="fecha " disabled class="form-control" value="<?php echo $vHis[3]; ?>">
                                 </br>
                             </div>
@@ -114,13 +116,14 @@
                                 <input name="firma " type="text" id="firma " disabled class="form-control" value="<?php echo $vCri[4]; ?>">
                                 </br>
                             </div>
-                            <div class="form-group">
+                         
+                        </form>
+                        <div id="imagendividido">
                                 <h3>Foto o PDF de la historia clinica</h3>
-                                <iframe src="archivos/<?php echo $vHis[4]; ?>" width="100%" height="100%"></iframe>
+                                <iframe src="archivos/<?php echo $vHis[4]; ?>" width="100%" height="400px"></iframe>
                                 </br>
                                 <br>
                             </div>
-                        </form>
                     </div>
                 <?php
                 }
