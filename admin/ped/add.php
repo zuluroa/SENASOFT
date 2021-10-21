@@ -8,21 +8,6 @@
     <link rel="shortcut icon" href="../img/icono.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/main.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
-    <script>
-       $(function() {
-            // Clona la fila oculta que tiene los campos base, y la agrega al final de la tabla
-            $("#adicional").on('click', function() {
-                $("#tabla tbody tr:eq(0)").clone().removeClass('fila-fija').appendTo("#tabla").find('input').val('').end();
-            });
-
-            // Evento que selecciona la fila y la elimina 
-            $(document).on("click", ".eliminar", function() {
-                var parent = $(this).parents().get(0);
-                $(parent).remove();
-            });
-        });
-    </script>
 </head>
 
 <body class="is-preload">
@@ -38,68 +23,117 @@
                 <?php
                 include '../header.php';
                 include("../../conexion.php");
-                $RSProv = mysqli_query($conexion, "SELECT * FROM proveedor");
-                $NumProv = mysqli_num_rows($RSProv);
+                $NumPac = 0;
                 ?>
 
                 <!-- Content -->
                 <div class="container">
-                    <form class="ap" method="post" action="insert.php" enctype="multipart/form-data">
-                        <h1>Registrar Pedido</h1>
+                    <h1>Registrar nuevo historial</h1>
+                    <form class="ap" method="POST" action="add.php" enctype="multipart/form-data">
                         <div class="form-group">
-                            <h3>Proveedor</h3>
-                            <select name="PROVid" class="form-control">
-                                <option>SELECCIONA UNA OPCI&Oacute;N</option>
-                                <?php
-                                if ($NumProv != 0) {
-                                    while ($vProv = mysqli_fetch_row($RSProv)) {
-                                ?>
-                                        <option value="<?php echo $vProv[0]; ?>"><?php echo $vProv[1]; ?></option>
-                                <?php
-                                    }
-                                }
-                                ?>
+                            <h3>PACIENTE</h3>
+                            <input name="numero_identificacion" type="text" id="numero_identificacion" placeholder="N&uacute;mero identificaci&oacute;n" required="required" class="form-control">
+                            <div class="form-group">
+                                <br>
+                                <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
+                            </div>
+                            <?php
+                            if (isset($_POST['buscar'])) {
+                                $Identificacion = $_POST['numero_identificacion'];
+                                $RSPac = mysqli_query($conexion, "SELECT * FROM paciente where numero_identificacion LIKE '%" . $Identificacion . "%'");
+                                $NumPac = mysqli_num_rows($RSPac);
+                            }
+                            ?>
                             </select>
-                            </br>
-                        </div>
-                        <div class="form-group">
-                            <h3>Fecha del Pedido</h3>
-                            <input name="PEDFecha" type="date" id="PEDFecha" placeholder="Fecha del Pedido" required="required" class="form-control">
-                            </br>
-                        </div>
-                        <div class="form-group">
-                            <h3>N&uacute;mero de Pedido</h3>
-                            <input name="PEDNumero" type="text" id="PEDNumero" placeholder="N&uacute;mero de Pedido" required="required" class="form-control">
-                            </br>
-                        </div>
-                        <div class="form-group">
-                            <h3>Detalles de los Productos </h3>
-                            <table class="table bg-info" id="tabla">
-                                <tr class="fila-fija">
-                                    <td><input required name="PROid[]" id="PROid[]" type="text" placeholder="C&oacute;digo..." class="form-control" ></td>
-                                    <td><input required type="date" name="PROFechaVencimiento[]" class="form-control" ></td>
-                                    <td><input required name="PROCantidad[]" type="text" placeholder="Cantidad..." class="form-control" ></td>
-                                    <td class="eliminar"><button value="Menos -">Menos - </button></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="btn-der">
-                            <button id="adicional" name="adicional" type="button" class="btn btn-warning"> M&aacute;s + </button>
-                            </br>
-                            </br>
-                        </div>
-                        <div class="form-group">
-                            <h3>PDF de la Factura</h3>
-                            <input name="PEDPdf" type="file" id="PEDPdf"  class="form-control">
-                            </br>
                             <br>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" name="insertar" value="Guardar" class="btn btn-primary" required="required" />
-                        </div>
+                    </form>
+                    <form class="ap" method="post" action="insert.php" enctype="multipart/form-data">
+                        <?php
+                        if ($NumPac != 0) {
+                            $vPac = mysqli_fetch_row($RSPac);
+                            $RSTip = mysqli_query($conexion, "SELECT * FROM tipo_identificacion where id = '" . $vPac[1] . "'");
+                            $vTip = mysqli_fetch_row($RSTip);
+                        ?>
+                            <input type="hidden" value="<?php echo $vPac[0]; ?>" name="paciente_id">
+                            <div class="form-group">
+                                <h3>Tipo de identificación</h3>
+                                <input name="id_tipoIndentificacion " type="text" id="id_tipoIndentificacion " disabled class="form-control" value="<?php echo $vTip[1]; ?>">
+                                </br>
+                            </div>
+                            <div class="form-group">
+                                <h3>N&uacute;mero de identificaci&oacute;n</h3>
+                                <input name="numero_identificacion " type="text" id="numero_identificacion " disabled class="form-control" value="<?php echo $vPac[2]; ?>">
+                                </br>
+                            </div>
+                            <div class="form-group">
+                                <h3>Nombre del paciente</h3>
+                                <input name="nombre " type="text" id="nombre " disabled class="form-control" value="<?php echo $vPac[3]; ?>">
+                                </br>
+                            </div>
+                            <div class="form-group">
+                                <h3>Tel&eacute;fono del paciente</h3>
+                                <input name="telefono " type="text" id="telefono " disabled class="form-control" value="<?php echo $vPac[4]; ?>">
+                                </br>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Firma del paciente</label>
+                                <img style="width:400px; height:300px;" src="../ped/archivos/<?php if ($vPac['0'] != "") {
+                                                                                                    echo $vPac['5'];
+                                                                                                } else {
+                                                                                                    echo "default.png";
+                                                                                                } ?>">
+                            </div>
+                            <br></br>
+                            <div class="form-group">
+                                <h3>LA HISTORIA CLINICA ESTA DILIGENCIADA COMPLETAMENTE</h3>
+                                <select name="diligencia" class="form-control">
+                                    <option value="1">CUMPLE</option>
+                                    <option value="0">NO CUMPLE</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <h3>LA HISTORIA NO TIENE TACHONES NI ENMENDADURAS</h3>
+                                <select name="tachon" class="form-control">
+                                    <option value="1">CUMPLE</option>
+                                    <option value="0">NO CUMPLE</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <h3>LA HISTORIA CLINICA ESTA DILIGENCIADA CON TINTA NEGRA</h3>
+                                <select name="tinta" class="form-control">
+                                    <option value="1">CUMPLE</option>
+                                    <option value="0">NO CUMPLE</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <h3>LA FIRMA CORRESPONDE A LA PERSONA REGISTRADA</h3>
+                                <select name="firma" class="form-control">
+                                    <option value="1">CUMPLE</option>
+                                    <option value="0">NO CUMPLE</option>
+                                </select>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <h3>Foto o PDF de la historia clinica</h3>
+                                <input name="pdf" type="file" id="pdf" class="form-control">
+                                </br>
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="insertar" value="Guardar" class="btn btn-primary" required="required" />
+                            </div>
+                            <br>
+                        <?php
+                        } else {
+                            echo "NO EXISTE ESTE USUARIO, INTENTA NUEVAMENTE.";
+                        }
+                        ?>
                     </form>
                 </div>
-
             </div>
         </div>
 
