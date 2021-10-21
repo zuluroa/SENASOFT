@@ -38,7 +38,7 @@
                 ?>
                     <div class="container">
                     <h1>Mostrar Paciente</h1>
-                        <form class="ap" id="formdividido" method="POST" enctype="multipart/form-data" overflow="hidden">
+                        <form  id="formdividido" method="POST" enctype="multipart/form-data" overflow="hidden">
                            
                             <div class="form-group">
                                 <h3>Tipo de identificaci&oacute;n</h3>
