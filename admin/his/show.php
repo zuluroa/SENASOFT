@@ -92,7 +92,7 @@
                                 </br>
                             </div>
                             <div class="col-xs-12">
-                                <label>Firma del paciente</label>
+                                <h3>Firma del paciente</h3>
                                 <iframe src="../pac/archivos/<?php echo $vPac[5]; ?>" width="100%" height="100%"></iframe>
                             </div>
                             <br></br>

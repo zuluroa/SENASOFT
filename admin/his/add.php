@@ -57,7 +57,7 @@
                         ?>
                             <div class="form-group">
                                 <h3>Fecha de la historia clinica</h3>
-                                <input name="fecha " type="date" id="fecha " disabled class="form-control">
+                                <input name="fecha " type="date" id="fecha "  class="form-control">
                                 </br>
                             </div>
                             <input type="hidden" value="<?php echo $vPac[0]; ?>" name="paciente_id">
@@ -82,12 +82,8 @@
                                 </br>
                             </div>
                             <div class="col-xs-12">
-                                <label>Firma del paciente</label>
-                                <img style="width:400px; height:300px;" src="../ped/archivos/<?php if ($vPac['0'] != "") {
-                                                                                                    echo $vPac['5'];
-                                                                                                } else {
-                                                                                                    echo "default.png";
-                                                                                                } ?>">
+                                <h3>Firma del paciente</h3>
+                                <iframe src="../pac/archivos/<?php echo $vPac[5]; ?>" width="100%" height="275px"></iframe>
                             </div>
                             <br></br>
                             <div class="form-group">

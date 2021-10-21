@@ -30,7 +30,7 @@
                         <p>SENASOFT</p>
                     </div>
                     <div class="caja1-titulo">
-                        <h1>Sistema de Inventarios</h1>
+                        <h1>Sistema de recepci&oacute;n de historias clinicas</h1>
                     </div>
 
                     <div class="selectForm">
@@ -42,7 +42,7 @@
 
                 <!-- CAJA 2 -->
                 <div class="caja2">
-                    
+
                     <form action="validar.php" id="Form" method="POST">
 
                         <div class="form-flex">
@@ -61,7 +61,6 @@
                         </div>
 
                         <input name="rol" type="radio" value="1" checked="checked">Administrador&nbsp;
-                        <input name="rol" type="radio" value="2" checked="checked">Vendedor&nbsp;
                         </br>
                         <input type="submit" value="Iniciar Sesión" class="boton">
                     </form>

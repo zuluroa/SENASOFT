@@ -39,7 +39,7 @@
                 include("../../conexion.php");
                 if (isset($_POST['buscar'])) {
                     $datos = $_POST['datos'];
-                    $RSHis = mysqli_query($conexion, "SELECT * FROM historial INNER JOIN paciente ON historial.paciente_id = paciente.id WHERE paciente.numero_identificacion LIKE '%$datos%' OR paciente.nombre LIKE '%$datos%' ORDER BY historial.fecha DESC");
+                    $RSHis = mysqli_query($conexion, "SELECT * FROM historial INNER JOIN paciente ON historial.paciente_id = paciente.id WHERE numero_identificacion LIKE '%$datos%' OR nombre LIKE '%$datos%' ORDER BY fecha DESC");
                     $NumHis = mysqli_num_rows($RSHis);
                 } else {
                     $RSHis = mysqli_query($conexion, "SELECT * FROM historial ORDER BY fecha DESC");
@@ -57,7 +57,8 @@
                             <div class="form-group">
                                 <h3>BUSCAR POR:</h3>
                                 <input name="datos" type="text" placeholder="NOMBRE O IDENTIFICACI&Oacute;N DEL PACIENTE" id="datos" class="form-control">
-                            </div>
+                                </div>
+                            <br>
                             <div class="form-group">
                                 <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
                                 <br>

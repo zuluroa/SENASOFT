@@ -3,7 +3,7 @@
 
         <!-- Search -->
         <section id="search" class="alt">
-            <h3>Bienvenido, <?php // echo $_SESSION['NombreADMIN']; ?></h3>
+            <h3>Bienvenido, <?php echo $_SESSION['NombreADMIN']; ?></h3>
         </section>
 
         <!-- Menu -->
@@ -39,7 +39,7 @@
 
 
         <footer id="footer">
-            <p class="copyright" align="center">&copy; Todos los derechos reservados ORANGECODE <?php echo date("Y"); ?> <br /></p>
+            <p class="copyright" align="center">&copy; Todos los derechos reservados <?php echo date("Y"); ?> <br /></p>
         </footer>
 
     </div>
