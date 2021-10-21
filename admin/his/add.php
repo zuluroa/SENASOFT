@@ -55,6 +55,11 @@
                             $RSTip = mysqli_query($conexion, "SELECT * FROM tipo_identificacion where id = '" . $vPac[1] . "'");
                             $vTip = mysqli_fetch_row($RSTip);
                         ?>
+                            <div class="form-group">
+                                <h3>Fecha de la historia clinica</h3>
+                                <input name="fecha " type="date" id="fecha " disabled class="form-control">
+                                </br>
+                            </div>
                             <input type="hidden" value="<?php echo $vPac[0]; ?>" name="paciente_id">
                             <div class="form-group">
                                 <h3>Tipo de identificación</h3>

@@ -63,11 +63,11 @@
                             <input name="telefono" type="text" id="telefono" placeholder="Telefono del paciente" required class="form-control">
                             </br>
                         </div>
-                        <div class="col-xs-12">
+                        <div class="form-group">
                             <h3>Firma del paciente</h3>
-                            <input name="firma" type="file" id="firma" class="form-control">
-                            </br>
-                            </br>
+                            <input id="firma" name="firma"  type="file"><br>
+                            <iframe id="img" alt="Imagen" width="100%" height="100%"></iframe>
+                            <br></br>
                         </div>
                         <div class="form-group">
                             <input type="submit" name="insertar" value="Guardar" class="btn btn-primary" required="required" />
@@ -92,6 +92,25 @@
     <script src="../assets/js/breakpoints.min.js"></script>
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function init() {
+            var inputFile = document.getElementById('firma');
+            inputFile.addEventListener('change', mostrarImagen, false);
+        }
+
+        function mostrarImagen(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                var img = document.getElementById('img');
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        window.addEventListener('load', init, false);
+    </script>
 
 </body>
 

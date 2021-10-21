@@ -37,8 +37,15 @@
                 <!-- Content -->
                 <?php
                 include("../../conexion.php");
-                $RSHis = mysqli_query($conexion, "SELECT * FROM historial ORDER BY id DESC");
-                $NumHis = mysqli_num_rows($RSHis);
+                if (isset($_POST['buscar'])) {
+                    $datos = $_POST['datos'];
+                    $RSHis = mysqli_query($conexion, "SELECT * FROM historial INNER JOIN paciente ON historial.paciente_id = paciente.id WHERE paciente.numero_identificacion LIKE '%$datos%' OR paciente.nombre LIKE '%$datos%' ORDER BY historial.fecha DESC");
+                    $NumHis = mysqli_num_rows($RSHis);
+                } else {
+                    $RSHis = mysqli_query($conexion, "SELECT * FROM historial ORDER BY fecha DESC");
+                    $NumHis = mysqli_num_rows($RSHis);
+                }
+
                 ?>
                 <div class="container">
                     <div class="btn-group">
@@ -46,6 +53,16 @@
                         <div>
                             <a href="add.php" class="button big">Agregar</a></p>
                         </div>
+                        <form class="ap" method="POST" action="#" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <h3>BUSCAR POR:</h3>
+                                <input name="datos" type="text" placeholder="NOMBRE O IDENTIFICACI&Oacute;N DEL PACIENTE" id="datos" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
+                                <br>
+                            </div>
+                        </form>
                     </div>
                     <table align="center" class="table table-hover">
                         <thead class="color">
@@ -57,13 +74,10 @@
                                     <h3>Eliminar</h3>
                                 </td>
                                 <td align="center">
-                                    <h3>Proveedor</h3>
-                                </td>
-                                <td align="center">
                                     <h3>Paciente</h3>
                                 </td>
                                 <td align="center">
-                                    <h3>Fecha</h3>
+                                    <h3>Fecha de servicio</h3>
                                 </td>
                             </tr>
                         </thead>
@@ -80,12 +94,12 @@
                                 <tbody>
                                     <tr>
                                         <td align="center" class="celd-centrar">
-                                            <a href="show.php?PEDid=<?php echo $vPed[0] ?>" class="button big">
+                                            <a href="show.php?id=<?php echo $vHis[0] ?>" class="button big">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                         </td>
                                         <td align="center">
-                                            <a href="delete.php?PEDid=<?php echo $vPed[0] ?>" class="button big" onclick=" return ConfirmDelete()">
+                                            <a href="delete.php?id=<?php echo $vHis[0] ?>" class="button big" onclick=" return ConfirmDelete()">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </td>

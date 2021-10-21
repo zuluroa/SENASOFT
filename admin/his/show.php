@@ -44,11 +44,31 @@
                     } else {
                         $vCri[1] = "NO CUMPLE";
                     }
+                    if ($vCri[2] == 1) {
+                        $vCri[2] = "CUMPLE";
+                    } else {
+                        $vCri[2] = "NO CUMPLE";
+                    }
+                    if ($vCri[3] == 1) {
+                        $vCri[3] = "CUMPLE";
+                    } else {
+                        $vCri[3] = "NO CUMPLE";
+                    }
+                    if ($vCri[4] == 1) {
+                        $vCri[4] = "CUMPLE";
+                    } else {
+                        $vCri[4] = "NO CUMPLE";
+                    }
                 ?>
                     <div class="container">
                         <form class="ap" method="POST" enctype="multipart/form-data">
                             <h1>Mostrar Historial</h1>
                             <input type="hidden" value="<?php echo $id; ?>" name="PEDid">
+                            <div class="form-group">
+                                <h3>Fecha de la historia clinica</h3>
+                                <input name="fecha " type="date" id="fecha " disabled class="form-control" value="<?php echo $vHis[3]; ?>">
+                                </br>
+                            </div>
                             <div class="form-group">
                                 <h3>Tipo de identificación</h3>
                                 <input name="id_tipoIndentificacion " type="text" id="id_tipoIndentificacion " disabled class="form-control" value="<?php echo $vTip[1]; ?>">
@@ -71,11 +91,7 @@
                             </div>
                             <div class="col-xs-12">
                                 <label>Firma del paciente</label>
-                                <img style="width:400px; height:300px;" src="../ped/archivos/<?php if ($vPac['0'] != "") {
-                                                                                                    echo $vPac['5'];
-                                                                                                } else {
-                                                                                                    echo "default.png";
-                                                                                                } ?>">
+                                <iframe src="../pac/archivos/<?php echo $vPac[5]; ?>" width="100%" height="100%"></iframe>
                             </div>
                             <br></br>
                             <div class="form-group">
@@ -100,7 +116,7 @@
                             </div>
                             <div class="form-group">
                                 <h3>Foto o PDF de la historia clinica</h3>
-                                <input name="pdf" type="file" id="pdf" class="form-control">
+                                <iframe src="archivos/<?php echo $vHis[4]; ?>" width="100%" height="100%"></iframe>
                                 </br>
                                 <br>
                             </div>
