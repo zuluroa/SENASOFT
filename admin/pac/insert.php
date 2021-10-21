@@ -9,12 +9,12 @@ $telefono = $_POST['telefono'];
 $firma = $_FILES['firma']['name'];
 $firmaName = $_FILES['firma']['tmp_name'];
 
-$RSPac = mysqli_query($conexion, "SELECT id FROM paciente");
+$RSPac = mysqli_query($conexion, "SELECT max(id) FROM paciente");
 $NumPac = mysqli_fetch_row($RSPac);
 
 if ($firma != "") {
     chmod('archivos/', 0777);
-    $PDF = "pdf_" . ($NumPac[0]) . ".pdf";
+    $PDF = "pdf_paciente" . ($NumPac[0]) . ".pdf";
     if (move_uploaded_file($_FILES['firma']['tmp_name'], "archivos/" . $PDF)) {
         $sql = "INSERT INTO paciente (id_tipoIndentificacion,numero_identificacion,nombre,telefono,firma)
 VALUES ('$id_tipoIndentificacion','$numero_identificacion','$nombre','$telefono','$PDF')";

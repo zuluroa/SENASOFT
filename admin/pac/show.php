@@ -37,8 +37,9 @@
                     $vTip = mysqli_fetch_row($RSTip);
                 ?>
                     <div class="container">
+                    <h1>Mostrar Paciente</h1>
                         <form class="ap" method="POST" enctype="multipart/form-data">
-                            <h1>Mostrar Paciente</h1>
+                           
                             <div class="form-group">
                                 <h3>Tipo de identificaci&oacute;n</h3>
                                 <input name="id_tipoIndentificacion " type="text" id="id_tipoIndentificacion " disabled class="form-control" value="<?php echo $vTip[1]; ?>">
@@ -59,13 +60,9 @@
                                 <input name="telefono " type="text" id="telefono " disabled class="form-control" value="<?php echo $vPac[4]; ?>">
                                 </br>
                             </div>
-                            <div class="col-xs-12">
+                            <div class="form-group">
                                 <h3>Firma del paciente</h3>
-                                <img style="width:400px; height:300px;" src="../ped/archivos/<?php if ($vPac['0'] != "") {
-                                                                                                    echo $vPac['5'];
-                                                                                                } else {
-                                                                                                    echo "default.png";
-                                                                                                } ?>">
+                                <iframe src="archivos/<?php echo $vPac[5]; ?>" width="100%" height="100%"></iframe>
                             </div>
                             <br></br>
                         </form>
