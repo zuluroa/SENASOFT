@@ -38,7 +38,7 @@
                 ?>
                     <div class="container">
                     <h1>Mostrar Paciente</h1>
-                        <form class="ap" method="POST" enctype="multipart/form-data">
+                        <form class="ap" id="formdividido" method="POST" enctype="multipart/form-data" overflow="hidden">
                            
                             <div class="form-group">
                                 <h3>Tipo de identificaci&oacute;n</h3>
@@ -60,12 +60,13 @@
                                 <input name="telefono " type="text" id="telefono " disabled class="form-control" value="<?php echo $vPac[4]; ?>">
                                 </br>
                             </div>
-                            <div class="form-group">
-                                <h3>Firma del paciente</h3>
-                                <iframe src="archivos/<?php echo $vPac[5]; ?>" width="100%" height="100%"></iframe>
-                            </div>
+                          
                             <br></br>
                         </form>
+                        <div  id="imagendividido">
+                                <h3>Firma del paciente</h3>
+                                <iframe src="archivos/<?php echo $vPac[5]; ?>" width="100%" height="400px"></iframe>
+                            </div>
                     </div>
                 <?php
                 }

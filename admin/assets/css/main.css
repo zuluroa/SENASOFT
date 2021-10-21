@@ -1008,16 +1008,10 @@ header.major > :last-child {
 
 header.main > :last-child {
   margin: 0 0 1em 0; }
- 
+
+/* Form */
 form {
-  position: absolute;
-  border-right: 50%;
-  margin-right: 70%;
-   } 
-.pdf{
-  margin-left: 55%;
-  margin-top: 5%;
-}   
+  margin: 0 0 2em 0; }
 
 label {
   color: #3d4449;
@@ -2290,3 +2284,11 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+   
+   #formdividido{
+    position: absolute;
+   }
+   #imagendividido{
+    margin-left: 57%;
+    height: 100%;
+   }
