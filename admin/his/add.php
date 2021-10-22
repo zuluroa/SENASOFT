@@ -119,8 +119,8 @@
                                 <br>
                             </div>
                             <div class="form-group">
-                                <h3>Foto o PDF de la historia clinica</h3>
-                                <input name="pdf" type="file" id="pdf" class="form-control">
+                                <h3>PDF de la historia clinica</h3>
+                                <input name="pdf" type="file" id="pdf" class="form-control" accept="application/pdf" />
                                 </br>
                                 <br>
                             </div>
