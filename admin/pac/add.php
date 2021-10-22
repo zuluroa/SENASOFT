@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <h3>Firma del paciente</h3>
-                            <input id="firma" name="firma"  type="file"><br>
+                            <input id="firma" name="firma" type="file" accept="application/pdf" /><br>
                             <iframe id="img" alt="Imagen" width="100%" height="100%"></iframe>
                             <br></br>
                         </div>
